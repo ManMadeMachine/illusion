@@ -2,6 +2,19 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+export interface Props {
+  name: string;
+  enthusiasmLevel?: number;
+};
+
+const Hello = ({name, enthusiasmLevel = 1} : Props) => {
+    return (
+      <div className="hello">
+        <p>Hello {name}</p>
+      </div>
+    );
+}
+
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -18,6 +31,7 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
+        <Hello name="Jaska" />
       </header>
     </div>
   );
