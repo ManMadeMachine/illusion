@@ -25,3 +25,19 @@
     background-color: rgb(253, 185, 82);
     margin: 0.2rem 0;
 }
+
+.expense-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style-type: none;
+    font-size: large;
+    padding: 0.5rem;
+    background-color: rgb(253, 185, 82);
+}
+
+.row-part {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}

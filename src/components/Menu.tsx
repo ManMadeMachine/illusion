@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import { render } from '@testing-library/react';
-
 const Menu = () => {
-    render(
+    return(
         <div className="menu">
             
         </div>

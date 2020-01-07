@@ -1,45 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
-import Expenses, {Expense} from './components/Expenses';
+import ExpensesList, {Expense} from './components/ExpensesList';
+import ExpensesForm from './components/ExpensesForm';
 
 export interface Props {
   name: string;
   enthusiasmLevel?: number;
 };
 
-const Hello = ({name, enthusiasmLevel = 1} : Props) => {
-    return (
-      <div className="hello">
-        <p>Hello {name}</p>
-      </div>
-    );
-}
-
-// FIXME: REMOVE Test data for list view
-const expenses : Expense[] = [
-  {
-    id: 1,
-    title: 'Jaskan jokuset'
-  }, 
-  {
-    id: 2,
-    title: 'Pekan paremmat'
-  },
-  {
-    id: 3,
-    title: 'Paavon parhaat'
-  }
-]
-
 const App: React.FC = () => {
+  const [expenses, setExpenses] = useState<Expense[]>([
+    {
+      id: 1,
+      title: 'Jaskan jokuset'
+    }, 
+    {
+      id: 2,
+      title: 'Pekan paremmat'
+    },
+    {
+      id: 3,
+      title: 'Paavon parhaat'
+    }
+  ]);
+  
+  const addExpenseHandler = (e : Expense) => {
+    const newExpenses = expenses.concat(e);
+    console.log(expenses);
+    setExpenses(newExpenses);
+    console.log(expenses);
+  };
+
   return (
     <div className="App">
+      {/* {console.log(expenses)} */}
       <header className="App-header">
         <h1>Illusion</h1>
       </header>
       <div className="content">
-        <Expenses expenses={expenses} /> 
+        <ExpensesList expenses={expenses} /> 
+        <ExpensesForm addExpenseHandler={addExpenseHandler}/>
       </div>
     </div>
   );
