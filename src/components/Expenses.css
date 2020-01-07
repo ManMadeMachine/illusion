@@ -2,4 +2,26 @@
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
+    margin-bottom: 0px;
+    min-width: 50vw;
+}
+
+.expense-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 1rem;
+    margin-top: 0px;
+}
+
+.expense-list-row {
+    display: flex;
+    list-style-type: none;
+    font-size: large;
+    padding: 0.5rem;
+}
+
+.expense-list-row:nth-child(odd) {
+    background-color: rgb(253, 185, 82);
+    margin: 0.2rem 0;
 }

@@ -36,7 +36,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Illusion</p>
+        <h1>Illusion</h1>
       </header>
       <div className="content">
         <Expenses expenses={expenses} /> 
