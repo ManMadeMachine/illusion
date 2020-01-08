@@ -28,3 +28,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+/* GLOBAL STYLES */
+/* FIXME: Move to a different global css file? */
+.submit-button {
+
+}

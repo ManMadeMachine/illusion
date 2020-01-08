@@ -1,0 +1,19 @@
+{
+    "expenses": [
+        {
+            "id": 1,
+            "title": "Jaskan jokuset",
+            "cost": 14
+          }, 
+          {
+            "id": 2,
+            "title": "Pekan paremmat",
+            "cost": 1245
+          },
+          {
+            "id": 3,
+            "title": "Paavon parhaat",
+            "cost": 3023
+          }
+    ]
+}

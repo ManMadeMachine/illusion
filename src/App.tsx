@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 import ExpensesList, {Expense} from './components/ExpensesList';
 import ExpensesForm from './components/ExpensesForm';
+
+import {getExpenses} from './services/expenseService';
 
 export interface Props {
   name: string;
@@ -10,20 +12,16 @@ export interface Props {
 };
 
 const App: React.FC = () => {
-  const [expenses, setExpenses] = useState<Expense[]>([
-    {
-      id: 1,
-      title: 'Jaskan jokuset'
-    }, 
-    {
-      id: 2,
-      title: 'Pekan paremmat'
-    },
-    {
-      id: 3,
-      title: 'Paavon parhaat'
-    }
-  ]);
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+
+  useEffect(() => {
+    getExpenses().then(exp => {
+      if(exp){
+        console.log(exp);
+        setExpenses(exp);
+      }
+    });
+  }, []);
   
   const addExpenseHandler = (e : Expense) => {
     const newExpenses = expenses.concat(e);
@@ -34,7 +32,6 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      {/* {console.log(expenses)} */}
       <header className="App-header">
         <h1>Illusion</h1>
       </header>

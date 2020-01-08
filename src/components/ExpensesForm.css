@@ -1,0 +1,12 @@
+.expenses-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-data-row {
+    margin-bottom: 1vmin;
+}
+
+.input-data-row label{
+    padding: 1vmin;
+}
