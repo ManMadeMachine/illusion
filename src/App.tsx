@@ -4,7 +4,7 @@ import './App.css';
 import ExpensesList, {Expense} from './components/ExpensesList';
 import ExpensesForm from './components/ExpensesForm';
 
-import {getExpenses} from './services/expenseService';
+import {ExpensesService} from './services/expenseService';
 
 export interface Props {
   name: string;
@@ -15,20 +15,28 @@ const App: React.FC = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
 
   useEffect(() => {
-    getExpenses().then(exp => {
+    ExpensesService.getExpenses().then(exp => {
       if(exp){
-        console.log(exp);
         setExpenses(exp);
       }
     });
   }, []);
   
   const addExpenseHandler = (e : Expense) => {
-    const newExpenses = expenses.concat(e);
-    console.log(expenses);
-    setExpenses(newExpenses);
-    console.log(expenses);
+    ExpensesService.addExpense(e).then(res => {
+      console.log('Added: ', res);
+      setExpenses(expenses.concat(res));
+    })
+  
   };
+
+  const removeExpenseHandler = (id : number) => {
+    console.log(`Remove item with id ${id}`);
+    ExpensesService.removeExpense(id).then(res => {
+      console.log(`Removed expense with id ${id}, res: ${res}`);
+      setExpenses(expenses.filter(e => e.id !== id));
+    })
+  }
 
   return (
     <div className="App">
@@ -36,7 +44,7 @@ const App: React.FC = () => {
         <h1>Illusion</h1>
       </header>
       <div className="content">
-        <ExpensesList expenses={expenses} /> 
+        <ExpensesList expenses={expenses} removeHandler={removeExpenseHandler}/> 
         <ExpensesForm addExpenseHandler={addExpenseHandler}/>
       </div>
     </div>

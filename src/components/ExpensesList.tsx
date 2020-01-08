@@ -8,10 +8,11 @@ export interface Expense {
 };
 
 export interface ExpenseListProps {
-    expenses: Expense[]
+    expenses: Expense[];
+    removeHandler: (id : number) => void 
 };
 
-const ExpensesList = (props : ExpenseListProps) => {
+const ExpensesList = ({expenses, removeHandler} : ExpenseListProps) => {
     return (
         <div className="expenses">
             <h1>Expenses</h1>
@@ -21,12 +22,13 @@ const ExpensesList = (props : ExpenseListProps) => {
                     <div className="row-part"><b>Cost</b></div>
                 </li>
 
-                { props.expenses.length > 0 
-                    ? props.expenses.map(e => {
+                { expenses.length > 0 
+                    ? expenses.map(e => {
                         return (
                             <li key={e.id} className="expense-list-row">  
-                                <div className="row-part">{e.title}</div>
-                                <div className="row-part">{e.cost}</div>
+                                <div className="row-part"><p>{e.title}</p></div>
+                                <div className="row-part"><p>{e.cost}</p></div>
+                                <button className="delete-button" onClick={() => removeHandler(e.id)}>&#128465;</button>
                             </li>
                         )
                     }) 
