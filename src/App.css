@@ -6,21 +6,6 @@
   text-align: center;
 }
 
-.App-header {
-  /* width: 100vh; */
-  padding: 1vmin, 1rem;
-  min-height: 5vmin;
-  max-height: 10vmin;
-  background-color: #282c34;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(16px + 1vmin);
-  color: white;
-}
-
 .content {
   display: flex;
   flex: 2;

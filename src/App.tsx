@@ -3,6 +3,7 @@ import './App.css';
 
 import ExpensesList, {Expense} from './components/ExpensesList';
 import ExpensesForm from './components/ExpensesForm';
+import Header from './components/Header';
 
 import {ExpensesService} from './services/expenseService';
 
@@ -40,9 +41,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Illusion</h1>
-      </header>
+      <Header />
       <div className="content">
         <ExpensesList expenses={expenses} removeHandler={removeExpenseHandler}/> 
         <ExpensesForm addExpenseHandler={addExpenseHandler}/>

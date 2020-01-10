@@ -1,0 +1,18 @@
+.app-header {
+    /* width: 100vh; */
+    padding: 1vmin, 1rem;
+    min-height: fit-content;
+    max-height: 5vh;
+    background-color: #282c34;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: calc(16px + 1vmin);
+    color: white;
+  }
+  
+  .app-header h1 {
+    margin: 0 0.5rem;
+  }
