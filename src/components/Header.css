@@ -14,5 +14,38 @@
   }
   
   .app-header h1 {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
     margin: 0 0.5rem;
+  }
+
+  .link-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .links {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .menu-link {
+    display: flex;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  .menu-link a {
+    display: flex;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    padding: 1rem 1rem;
+  }
+
+  .menu-link a:hover {
+    background-color: black;
   }

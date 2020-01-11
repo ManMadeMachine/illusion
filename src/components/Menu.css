@@ -1,5 +1,13 @@
-.right {
+.link-container {
+    display: flex;
     flex-direction: column;
     height: 100%;
-    flex: 2;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin: 0;
+    list-style: none;
 }

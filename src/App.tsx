@@ -41,7 +41,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header linkItems={[`Expenses`, `Income`, `Statistics`]} />
       <div className="content">
         <ExpensesList expenses={expenses} removeHandler={removeExpenseHandler}/> 
         <ExpensesForm addExpenseHandler={addExpenseHandler}/>
