@@ -7,7 +7,10 @@ import Header from './components/Header';
 
 import {ExpensesService} from './services/expenseService';
 
-import './App.css';
+// import './App.css';
+
+// Tailwind styles
+import './styles.css';
 
 
 export interface Props {
@@ -43,7 +46,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="App">
+    <div className="flex flex-col  mx-auto my-12 items-center">
       <Header linkItems={[`Expenses`, `Income`, `Statistics`]} />
       <div className="content">
         <Switch>

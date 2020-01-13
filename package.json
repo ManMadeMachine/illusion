@@ -23,7 +23,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-fake-server": "json-server --watch db.json"
+    "start-fake-server": "json-server --watch db.json",
+    "build:styles": "postcss src/tailwind.css -o src/styles.css",
+    "prebuild": "yarn build:styles",
+    "prestart": "yarn build:styles"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +44,9 @@
     ]
   },
   "devDependencies": {
-    "json-server": "^0.15.1"
+    "autoprefixer": "^9.7.3",
+    "json-server": "^0.15.1",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.1.4"
   }
 }
