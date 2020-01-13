@@ -1,5 +1,5 @@
 import React from 'react';
-// import Menu from './Menu';
+import {Link} from 'react-router-dom';
 
 import './Header.css';
 
@@ -15,7 +15,7 @@ const Header = ({linkItems} :  Props) => {
             <div className="link-container">
                 <ul className="links">
                     {linkItems.map(item => {
-                            return(<li key={item} className="menu-link"><a href="/">{item}</a></li>); // TODO: item string as link path
+                            return(<li key={item} className="menu-link"><Link to={'/' + item.toLowerCase()}>{item}</Link></li>); // TODO: item string as link path
                         })
                     }
                 </ul>

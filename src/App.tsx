@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import {Switch, Route} from 'react-router-dom';
 
 import ExpensesList, {Expense} from './components/ExpensesList';
 import ExpensesForm from './components/ExpensesForm';
 import Header from './components/Header';
 
 import {ExpensesService} from './services/expenseService';
+
+import './App.css';
+
 
 export interface Props {
   name: string;
@@ -43,8 +46,15 @@ const App: React.FC = () => {
     <div className="App">
       <Header linkItems={[`Expenses`, `Income`, `Statistics`]} />
       <div className="content">
-        <ExpensesList expenses={expenses} removeHandler={removeExpenseHandler}/> 
-        <ExpensesForm addExpenseHandler={addExpenseHandler}/>
+        <Switch>
+          <Route path="/expenses">
+            <ExpensesList expenses={expenses} removeHandler={removeExpenseHandler}/> 
+            <ExpensesForm addExpenseHandler={addExpenseHandler}/>
+          </Route>
+          <Route path="/">
+            <h1>Home</h1>
+          </Route>
+        </Switch>
       </div>
     </div>
   );
