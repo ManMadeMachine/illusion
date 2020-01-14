@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 
 import './Header.css';
@@ -8,16 +8,40 @@ interface Props {
 }
 
 const Header = ({linkItems} :  Props) => {
+    const [navbarState, setNavbarState] = useState(false)
+    const [hiddenStyle, setHiddenStyle] = useState('hidden');
+
+    const toggleNavBar = () => {
+        setNavbarState(!navbarState);
+        console.log("Toggle navbar ", (navbarState ? 'on' : 'off'));
+    };
+
     return (
-        <div className="flex flex-row justify-start pt-2 pb-2 bg-gray-900 text-white">
-            <h1 className="p-2">Illusion</h1>
-            <ul className=" flex">
+        <nav className="flex items-center justify-between flex-wrap pt-2 pb-2 bg-gray-900 text-white p-6">
+            <h1 className="flex text-xl">Illusion</h1>
+
+            {/* Small-size top-menu */}
+            <div className="block md:hidden">
+                {/* <span className="align-middle px-2" onClick={() => toggleNavBar()}>-</span> */}
+                <button className="flex items-center">--</button>
+            </div>
+
+            {/* { navbarState &&    
+                <div className="md:hidden absolute top-0 right-0 bg-gray-800 w-full">
+                    {linkItems.map(item => {
+                        return(<li key={item} className=""><Link to={'/' + item.toLowerCase()}>{item}</Link></li>);
+                    })
+                }
+                </div>
+            } */}
+
+            <ul className="hidden flex-grow md:flex md:flex-row md:w-auto">
                 {linkItems.map(item => {
-                        return(<li key={item}><Link to={'/' + item.toLowerCase()}>{item}</Link></li>); // TODO: item string as link path
+                        return(<li key={item} className="flex p-2"><Link to={'/' + item.toLowerCase()}>{item}</Link></li>); // TODO: item string as link path
                     })
                 }
             </ul>
-        </div>
+        </nav>
     );
 };
 
