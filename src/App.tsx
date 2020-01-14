@@ -46,9 +46,10 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col  mx-auto my-12 items-center">
+    <div className="flex flex-col">
       <Header linkItems={[`Expenses`, `Income`, `Statistics`]} />
-      <div className="content">
+      {/* Content */}
+      <div className="flex flex-col">
         <Switch>
           <Route path="/expenses">
             <ExpensesList expenses={expenses} removeHandler={removeExpenseHandler}/> 

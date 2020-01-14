@@ -9,17 +9,14 @@ interface Props {
 
 const Header = ({linkItems} :  Props) => {
     return (
-        <div className="app-header">
-            <h1>Illusion</h1>
-            
-            <div className="link-container">
-                <ul className="links">
-                    {linkItems.map(item => {
-                            return(<li key={item} className="menu-link"><Link to={'/' + item.toLowerCase()}>{item}</Link></li>); // TODO: item string as link path
-                        })
-                    }
-                </ul>
-            </div>
+        <div className="flex flex-row justify-start pt-2 pb-2 bg-gray-900 text-white">
+            <h1 className="p-2">Illusion</h1>
+            <ul className=" flex">
+                {linkItems.map(item => {
+                        return(<li key={item}><Link to={'/' + item.toLowerCase()}>{item}</Link></li>); // TODO: item string as link path
+                    })
+                }
+            </ul>
         </div>
     );
 };
