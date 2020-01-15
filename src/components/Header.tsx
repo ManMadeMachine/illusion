@@ -9,7 +9,6 @@ interface Props {
 
 const Header = ({linkItems} :  Props) => {
     const [navbarState, setNavbarState] = useState(false)
-    const [hiddenStyle, setHiddenStyle] = useState('hidden');
 
     const toggleNavBar = () => {
         setNavbarState(!navbarState);
@@ -22,8 +21,8 @@ const Header = ({linkItems} :  Props) => {
 
             {/* Small-size top-menu */}
             <div className="block md:hidden">
-                {/* <span className="align-middle px-2" onClick={() => toggleNavBar()}>-</span> */}
-                <button className="flex items-center">--</button>
+                {/* <span className="align-middle px-2" >-</span> */}
+                <button className="flex items-center" onClick={() => toggleNavBar()}>--</button>
             </div>
 
             {/* { navbarState &&    
@@ -35,7 +34,7 @@ const Header = ({linkItems} :  Props) => {
                 </div>
             } */}
 
-            <ul className="hidden flex-grow md:flex md:flex-row md:w-auto">
+            <ul className={`${navbarState ? '' : 'hidden'} flex-grow md:flex md:flex-row md:w-auto`}>
                 {linkItems.map(item => {
                         return(<li key={item} className="flex p-2"><Link to={'/' + item.toLowerCase()}>{item}</Link></li>); // TODO: item string as link path
                     })
