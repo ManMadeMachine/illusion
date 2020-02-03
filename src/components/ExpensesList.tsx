@@ -1,5 +1,5 @@
 import React from 'react';
-import './ExpensesList.css';
+// import './ExpensesList.css';
 
 export interface Expense {
     id: number;
@@ -14,21 +14,21 @@ export interface ExpenseListProps {
 
 const ExpensesList = ({expenses, removeHandler} : ExpenseListProps) => {
     return (
-        <div className="expenses">
-            <h1>Expenses</h1>
-            <ul className="expense-list">
-                <li className="expense-list-header">
-                    <div className="row-part"><b>Title</b></div>
-                    <div className="row-part"><b>Cost</b></div>
+        <div>
+            <h1 className="text-xl text-center py-1">Expenses</h1>
+            <ul className="flex self-center flex-col md:max-w-6xl md:m-auto mb-4">
+                <li className="flex justify-around p-2 bg-orange-400">
+                    <div className="flex-1"><b>Title</b></div>
+                    <div className="flex-1"><b>Cost</b></div>
                 </li>
 
                 { expenses.length > 0 
                     ? expenses.map(e => {
                         return (
-                            <li key={e.id} className="expense-list-row">  
-                                <div className="row-part"><p>{e.title}</p></div>
-                                <div className="row-part"><p>{e.cost}</p></div>
-                                <button className="delete-button" onClick={() => removeHandler(e.id)}>&#128465;</button>
+                            <li key={e.id} className="flex p-2 bg-orange-300 even:bg-orange-200">  
+                                <div className="flex-1"><p>{e.title}</p></div>
+                                <div className="flex-1"><p>{e.cost}</p></div>
+                                <button className="relative flex-grow-0" onClick={() => removeHandler(e.id)}>&#128465;</button>
                             </li>
                         )
                     }) 
