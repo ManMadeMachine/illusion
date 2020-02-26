@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Expense} from './ExpensesList';
-import './ExpensesForm.css';
 
 export interface NewExpense {
     title: string;
@@ -37,23 +36,24 @@ const ExpensesForm = ({addExpenseHandler} : Props) => {
         });
     }
     return (
-        <div className="expenses-form">
-            <h3>New expense</h3>
-            <div className="input-data-row">
-                <label className="expenses-label">
-                    Title:
-                </label>
-                <input type="text" value={newExpense.title} onChange={titleChangeHandler}/>
+        <div className=" expensesForm flex flex-col">
+            <h3 className="text-xl bg-green-400 mt-4 mb-2 text-center">New expense</h3>
+            <div className="controls flex flex-col">
+                <div className="bg-red-400">
+                    <label className="">
+                        Title:
+                    </label>
+                    <input className="bg-red-500" type="text" value={newExpense.title} onChange={titleChangeHandler}/>
+                </div>
+                <div className="bg-blue-400">
+                    <label className="">
+                        Cost:
+                    </label>
+                    <input className="bg-blue-500" type="text" value={newExpense.cost} onChange={costChangeHandler}/>
+                    {/* TODO: currency indicator */}
+                </div>
             </div>
-            <div className="input-data-row">
-                <label className="expenses-label">
-                    Cost:
-                </label>
-                <input type="text" value={newExpense.cost} onChange={costChangeHandler}/>
-                {/* TODO: currency indicator */}
-            </div>
-
-            <button onClick={addExpense} className="submit-button">Add expense</button>
+            <button onClick={addExpense} className="">Add expense</button>
         </div>
     )
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-// import './ExpensesList.css';
 
 export interface Expense {
     id: number;
@@ -14,10 +13,10 @@ export interface ExpenseListProps {
 
 const ExpensesList = ({expenses, removeHandler} : ExpenseListProps) => {
     return (
-        <div>
+        <div className="expensesList flex flex-col">
             <h1 className="text-xl text-center py-1">Expenses</h1>
-            <ul className="flex self-center flex-col md:max-w-6xl md:m-auto mb-4">
-                <li className="flex justify-around p-2 bg-orange-400">
+            <ul className="flex flex-col">
+                <li className="flex p-2 bg-orange-400">
                     <div className="flex-1"><b>Title</b></div>
                     <div className="flex-1"><b>Cost</b></div>
                 </li>

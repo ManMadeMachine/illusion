@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {Expense} from '../components/ExpensesList';
 
-const URL_ROOT = `http://localhost:3000/expenses`;
+const URL_ROOT = `http://localhost:3004/expenses`;
 
 interface IExpensesService {
     getExpenses: () => Promise<Expense[]>;

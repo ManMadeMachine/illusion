@@ -7,8 +7,6 @@ import Header from './components/Header';
 
 import {ExpensesService} from './services/expenseService';
 
-// import './App.css';
-
 // Tailwind styles
 import './styles.css';
 
@@ -49,7 +47,7 @@ const App: React.FC = () => {
     <div className="flex flex-col">
       <Header linkItems={[`Expenses`, `Income`, `Statistics`]} />
       {/* Content */}
-      <div className="flex flex-col">
+      <div className="content flex flex-col w-full md:max-w-6xl md:m-auto">
         <Switch>
           <Route path="/expenses">
             <ExpensesList expenses={expenses} removeHandler={removeExpenseHandler}/> 
