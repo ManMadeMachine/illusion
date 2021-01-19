@@ -1,0 +1,28 @@
+version: "3.8"
+
+services: 
+  frontend:
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+    ports: 
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app/
+      - ./package.json:/package.json
+      - ./yarn.lock:/yarn.lock
+      # This prevents the host node_modules from being mounted into the
+      # container. Also, this prevents application node_modules being created,
+      # and instead, the custom upper-level node_modules will be used. 
+      # see https://github.com/BretFisher/node-docker-good-defaults/blob/69c923bc646bc96003e9ada55d1ec5ca943a1b19/docker-compose.yml#L30-L34
+      # for information about this
+      - notused:/app/node_modules
+    environment: 
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+
+volumes:
+  notused:
